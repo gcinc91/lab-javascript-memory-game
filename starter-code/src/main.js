@@ -1,3 +1,6 @@
+
+
+
 var cards = [
   { name: 'aquaman',         img: 'aquaman.jpg' },
   { name: 'batman',          img: 'batman.jpg' },
@@ -28,6 +31,8 @@ var cards = [
 $(document).ready(function(){
   var memoryGame = new MemoryGame(cards);
   var html = '';
+  
+
   memoryGame.cards.forEach(function (pic) {
     html += '<div class="card" data-card-name="'+ pic.name +'">';
     html += '  <div class="back" name="'+ pic.img +'"></div>';
@@ -38,10 +43,31 @@ $(document).ready(function(){
   // Add all the div's to the HTML
   $('#memory_board').html(html);
 
+  memoryGame.shuffleCards(cards); 
   // Bind the click event of each element to a function
+  
+
   $('.back').click(function () {
     // TODO: write some code here
+    
+     memoryGame.pickedCards.push($(this));
+
+
+     $(this).toggleClass
+    
+
+
+
+      if (memoryGame.finished()) {
+        setTimeout(function () {
+          alert('YOU WIN');
+        }, 500);
+      }
+
+
   });
 });
+
+
 
 
